@@ -1,13 +1,19 @@
 const { app } = require("./app");
+const { associations } = require("./models/associations.model");
 const { db } = require("./utils/database.utils");
-const dotenv= require ("dotenv")
+const dotenv = require("dotenv");
 
-dotenv.config({path:"./config.env"})
+dotenv.config({ path: "./config.env" });
 
 const startServer = async () => {
   try {
-    await db.authenticate().then((res = console.log("authenticated")));
-    await db.sync().then((res = console.log("synced")));
+    await db.authenticate();
+
+    //Establishing relationships...
+    associations();
+
+    await db.sync();
+
     const PORT = 4000;
     app.listen(PORT, () => {
       console.log("Express app running");

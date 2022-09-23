@@ -14,6 +14,7 @@ const User = db.define("user", {
   email: {
     allowNull: false,
     type: DataTypes.STRING,
+    unique: true,
   },
   password: {
     allowNull: false,
@@ -27,7 +28,6 @@ const User = db.define("user", {
   role: {
     allowNull: false,
     type: DataTypes.STRING,
-    defaultValue: "normal",
   },
 });
 

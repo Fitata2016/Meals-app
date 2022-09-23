@@ -12,18 +12,18 @@ const Meal = db.define("meal", {
     type: DataTypes.STRING,
   },
   price: {
-    allowNull:false,
-    type:DataTypes.INTEGER
+    allowNull: false,
+    type: DataTypes.INTEGER,
   },
   restaurantId: {
-    allowNull:false,
-    type:DataTypes.INTEGER
+    allowNull: false,
+    type: DataTypes.INTEGER,
   },
   status: {
-    allowNull:false,
+    allowNull: false,
     defaultValue: "active",
-    type:DataTypes.STRING
+    type: DataTypes.STRING,
   },
 });
 
-module.exports={ Meal}
+module.exports = { Meal };
